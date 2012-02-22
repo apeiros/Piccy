@@ -1,5 +1,5 @@
 Piccy::Application.routes.draw do
-  root :to => 'pictures#index'
-
   resources :pictures
+
+  root :to => 'pictures#index'
 end
