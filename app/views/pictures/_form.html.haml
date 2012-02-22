@@ -1,3 +1,18 @@
+= content_for :javascript do
+  :javascript
+    $(function () {
+      $('#picture_file').fileupload({
+          dataType: 'json',
+          url: $('form').attr('action')+'.json',
+          done: function (e, data) {
+              $.each(data.result, function (index, file) {
+                  $('<p/>').text(file.name).appendTo(document.body);
+              });
+          }
+      });
+    });
+
+
 = form_for @picture do |f|
   -if @picture.errors.any?
     #error_explanation
