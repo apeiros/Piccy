@@ -6,7 +6,10 @@
           url: $('form').attr('action')+'.json',
           done: function (e, data) {
               $.each(data.result, function (index, file) {
-                  $('<p/>').text(file.name).appendTo(document.body);
+                  var para = $('<p/>').text(file.name)
+                  var imgt = $('<img/>').attr('src', file.thumbnail_url);
+                  imgt.appendTo(para);
+                  para.appendTo(document.body);
               });
           }
       });
